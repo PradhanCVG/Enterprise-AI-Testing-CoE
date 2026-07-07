@@ -1,0 +1,10 @@
+version: 1
+
+promptfoo:
+  settings:
+    verbose: true
+
+runs:
+  default:
+    tests:
+      - path: tests/promptfoo
