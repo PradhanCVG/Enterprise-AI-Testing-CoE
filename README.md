@@ -1,119 +1,245 @@
-# Enterprise AI Testing CoE
+# Enterprise AI Testing Overview
 
-A reference repository for enterprise-grade AI testing, validation, and automation.
-
-This project captures the practices, test patterns, and framework artifacts needed to validate the full AI lifecycle—from data ingestion and ETL to retrieval, generation, and observability.
+> Enterprise AI systems are only as reliable as the data, pipelines, retrieval mechanisms, and models that power them.
 
 ---
 
-## What is this repository?
+## Overview
 
-`Enterprise-AI-Testing-CoE` is a Center of Excellence toolkit for teams building and operating enterprise AI systems.
+Artificial Intelligence has fundamentally changed how enterprise applications are designed and tested.
 
-It helps teams:
+Unlike traditional software, AI applications depend on multiple interconnected components:
 
-- validate enterprise data sources and pipelines
-- verify document processing, embeddings, and retrieval
-- evaluate LLM responses for accuracy and safety
-- automate AI testing with open-source tools and frameworks
-- document enterprise best practices and test design
+- Enterprise databases
+- ETL pipelines
+- Streaming platforms
+- Document repositories
+- Embedding models
+- Vector databases
+- Retrieval engines
+- Large Language Models (LLMs)
+- Guardrails
+- Monitoring systems
 
----
+Testing only the application is no longer sufficient.
 
-## Why enterprise AI testing matters
-
-AI systems are not just software. They are ecosystems.
-
-A reliable enterprise AI deployment requires testing across:
-
-- data stores and ETL pipelines
-- schema, quality, and transformation logic
-- chunking, embeddings, and vector search
-- retrieval and prompt construction
-- LLM outputs, hallucinations, and guardrails
-- production monitoring, metrics, and drift detection
+Enterprise AI Testing validates the complete ecosystem to ensure responses are accurate, relevant, secure, and trustworthy.
 
 ---
 
-## Repository structure
+## Why Enterprise AI Testing?
 
-This repo is organized into five major areas:
+Traditional QA validates deterministic software behavior.
 
-- `docs/` – reference guides, domain knowledge, and architectural patterns
-- `automation/` – test automation examples and framework integrations
-- `sql/` – sample database scripts, Oracle/PostgreSQL cases, and validation queries
-- `testcases/` – reusable test case templates and domain-specific checklists
-- `assets/`, `diagrams/`, `examples/`, `templates/` – supporting materials for designs and demos
+AI adds new risk vectors that require specialized validation:
 
----
+- incorrect data
+- poor ETL transformations
+- missing documents
+- bad chunking
+- weak embeddings
+- low retrieval accuracy
+- hallucinated responses
+- prompt injection attacks
+- sensitive data leakage
 
-## Core domains
-
-### 1. Foundations
-
-Enterprise AI fundamentals, testing principles, and quality frameworks.
-
-### 2. Data Engineering
-
-Database testing, ETL validation, data reconciliation, and pipeline reliability.
-
-### 3. AI and Retrieval
-
-Document processing, embeddings, vector search, RAG evaluation, and retrieval quality.
-
-### 4. Quality and Safety
-
-Data quality rules, model evaluation, hallucination detection, prompt safety, and guardrails.
-
-### 5. Automation
-
-Automated testing with `pytest`, `great_expectations`, `pandera`, `promptfoo`, `deep_eval`, and `ragas`.
+Every layer must be tested independently and together.
 
 ---
 
-## How to use this repo
+## Enterprise AI Pipeline
 
-1. Review the high-level documentation in `docs/Volume-1-Foundations/`.
-2. Explore the domain-specific guides for database, ETL, AI, and quality.
-3. Open automation examples in `automation/` to understand test execution patterns.
-4. Use `testcases/` to adapt reusable checks and validations to your environment.
-5. Apply the architecture and lifecycle guidance to your enterprise AI implementation.
+```text
+Data Sources
+     │
+     ▼
+Oracle / PostgreSQL / APIs / Files
+     │
+     ▼
+ETL Pipeline
+(NiFi • Kafka • Spark)
+     │
+     ▼
+Data Quality Validation
+     │
+     ▼
+Document Processing
+     │
+     ▼
+Chunking
+     │
+     ▼
+Embedding Generation
+     │
+     ▼
+Vector Database
+     │
+     ▼
+Retriever
+     │
+     ▼
+Prompt Builder
+     │
+     ▼
+Large Language Model
+     │
+     ▼
+Guardrails
+     │
+     ▼
+Response
+     │
+     ▼
+Monitoring
+```
+
+Each stage requires dedicated testing and validation.
 
 ---
 
-## Example workflow
+## Testing Layers
 
-1. Validate enterprise data sources in `sql/`.
-2. Confirm ETL transforms and reconciliation rules.
-3. Check document chunking and embedding quality.
-4. Test retrieval precision and RAG grounding.
-5. Verify LLM outputs against business rules and guardrails.
-6. Enable automated regression tests and monitoring.
-
----
-
-## Contributing
-
-Contributions are welcome.
-
-- Add new docs or test frameworks for enterprise AI testing.
-- Share automation patterns for your data and AI stack.
-- Improve existing guidance, templates, and test cases.
-
-Please follow the repository license and contribution guidelines.
+| Layer | What to Test |
+|--------|--------------|
+| Database | data integrity, schema, constraints, partitions |
+| ETL | transformation accuracy, reconciliation, performance |
+| Data Quality | completeness, uniqueness, consistency |
+| Chunking | chunk size, overlap, semantic boundaries |
+| Embeddings | stability, similarity, drift |
+| Vector Database | index quality, recall, latency |
+| Retrieval | precision, recall, ranking |
+| LLM | accuracy, groundedness, hallucination |
+| Guardrails | prompt injection, PII, policy compliance |
+| Observability | logs, metrics, traces |
 
 ---
 
-## License
+## Enterprise Testing Domains
 
-This project is licensed under the `LICENSE` included in this repository.
+This repository focuses on six major testing domains.
+
+### Database Testing
+
+- Oracle
+- PostgreSQL
+- SQL validation
+- performance
+- security
+
+### ETL Testing
+
+- Apache NiFi
+- Kafka
+- data reconciliation
+- incremental loads
+- CDC
+
+### Data Quality
+
+- Great Expectations
+- Pandera
+- schema validation
+- business rules
+
+### AI Pipeline Testing
+
+- chunking
+- embeddings
+- vector databases
+- retrieval
+
+### AI Quality
+
+- RAG evaluation
+- hallucination detection
+- guardrails
+- prompt validation
+
+### Automation
+
+- pytest
+- GitHub Actions
+- DeepEval
+- Ragas
 
 ---
 
-## Quick links
+## Enterprise AI Testing Lifecycle
 
-- `README.md` – this overview
-- `docs/` – reference and architecture content
-- `automation/` – automated test examples
-- `sql/` – database scripts and test cases
-- `testcases/` – checklists and templates
+```text
+Requirements
+      │
+      ▼
+Test Strategy
+      │
+      ▼
+Test Design
+      │
+      ▼
+Test Data Preparation
+      │
+      ▼
+Database Validation
+      │
+      ▼
+ETL Validation
+      │
+      ▼
+AI Pipeline Validation
+      │
+      ▼
+Model Evaluation
+      │
+      ▼
+Regression Testing
+      │
+      ▼
+Deployment
+      │
+      ▼
+Production Monitoring
+```
+
+Testing is continuous throughout the lifecycle, not a single phase before release.
+
+---
+
+## Repository Roadmap
+
+| Document | Purpose |
+|----------|---------|
+| 01-Overview | Enterprise AI Testing overview |
+| 02-Architecture | enterprise reference architecture |
+| 03-Testing-Framework | testing strategy, process, governance |
+| 04-Database-Testing | Oracle & PostgreSQL |
+| 05-ETL-Testing | NiFi, Kafka, Spark |
+| 06-Data-Quality | Great Expectations & Pandera |
+| 07-Chunking | chunking validation |
+| 08-Embeddings | embedding quality |
+| 09-VectorDB | vector database testing |
+| 10-RAG-Testing | retrieval and response evaluation |
+| 11-Guardrails | AI security & safety |
+| 12-Observability | monitoring & evaluation |
+| 13-Automation | pytest & CI/CD |
+| 14-Best-Practices | enterprise recommendations |
+| 15-Checklists | ready-to-use checklists |
+
+---
+
+## What's Next?
+
+Continue with:
+
+➡ **02-Architecture.md**
+
+This document explains how Oracle, PostgreSQL, ETL pipelines, vector databases, RAG, and LLMs work together in an enterprise AI platform.
+
+---
+
+## Key Takeaways
+
+- AI quality depends on the entire pipeline, not just the LLM.
+- Every layer requires its own testing strategy.
+- Data quality is the foundation of trustworthy AI.
+- Enterprise AI Testing combines traditional QA, data engineering, and AI evaluation.
+- Continuous monitoring is essential after deployment.
