@@ -1,255 +1,119 @@
-# 🚀 Enterprise AI Testing Center of Excellence (CoE)
+# Enterprise AI Testing CoE
 
-> **A comprehensive open-source framework for Enterprise Database Testing, ETL Testing, Data Quality, AI Pipeline Testing, Retrieval-Augmented Generation (RAG), LLM Evaluation, Guardrails, and AI Quality Engineering.**
+A reference repository for enterprise-grade AI testing, validation, and automation.
 
-### Repository Topics
-
-ai, llm, rag, testing, qa, oracle, postgresql, etl, apache-nifi, kafka, data-quality, great-expectations, pandera, deepeval, ragas, pytest, automation, vector-database, langchain, enterprise
+This project captures the practices, test patterns, and framework artifacts needed to validate the full AI lifecycle—from data ingestion and ETL to retrieval, generation, and observability.
 
 ---
 
-## 📌 Vision
-## 🚧 Project Status
+## What is this repository?
 
-**Current Version:** 0.1.0
+`Enterprise-AI-Testing-CoE` is a Center of Excellence toolkit for teams building and operating enterprise AI systems.
 
-The Enterprise AI Testing CoE repository is currently under active development.
+It helps teams:
 
-### Current Development Focus
-
-- ✅ AI Testing Foundations
-- 🚧 Oracle Database Testing Framework
-- 🚧 PostgreSQL Testing Framework
-- 🚧 ETL Pipeline Testing
-- 🚧 Enterprise Data Quality Framework
-
-Upcoming modules include Chunking, Embeddings, Vector Databases, RAG Testing, Guardrails, AI Observability, and CI/CD automation.
-
-The **Enterprise AI Testing Center of Excellence (CoE)** aims to establish a comprehensive and reusable testing framework for enterprise AI systems.
-
-Modern AI applications rely on much more than Large Language Models (LLMs). They depend on reliable data pipelines, high-quality databases, semantic retrieval, vector databases, security controls, and continuous monitoring.
-
-This repository provides an end-to-end testing framework covering the complete AI lifecycle—from Oracle and PostgreSQL databases to Retrieval-Augmented Generation (RAG) and production observability.
+- validate enterprise data sources and pipelines
+- verify document processing, embeddings, and retrieval
+- evaluate LLM responses for accuracy and safety
+- automate AI testing with open-source tools and frameworks
+- document enterprise best practices and test design
 
 ---
 
-# 🎯 Objectives
-## 👥 Target Audience
+## Why enterprise AI testing matters
 
-This repository is designed for:
+AI systems are not just software. They are ecosystems.
 
-- QA Engineers
-- Test Automation Engineers
-- Data Engineers
-- AI Engineers
-- Machine Learning Engineers
-- DevOps Engineers
-- Platform Engineers
-- Enterprise Architects
-- Technical Leads
+A reliable enterprise AI deployment requires testing across:
 
-- Standardize enterprise AI testing methodologies
-- Improve data quality and trustworthiness
-- Validate Oracle and PostgreSQL databases
-- Test ETL pipelines and streaming platforms
-- Ensure reliable AI retrieval and generation
-- Detect hallucinations and model drift
-- Automate AI quality validation
-- Integrate AI testing into CI/CD pipelines
-- Promote reusable testing assets and best practices
+- data stores and ETL pipelines
+- schema, quality, and transformation logic
+- chunking, embeddings, and vector search
+- retrieval and prompt construction
+- LLM outputs, hallucinations, and guardrails
+- production monitoring, metrics, and drift detection
 
 ---
 
-# 🏗 Enterprise AI Reference Architecture
+## Repository structure
 
-```text
-                Enterprise AI Platform
+This repo is organized into five major areas:
 
-        Oracle / PostgreSQL / APIs / Files
-                     │
-                     ▼
-        ETL Pipelines (NiFi • Kafka • Spark)
-                     │
-                     ▼
-       Data Quality (Great Expectations • Pandera)
-                     │
-                     ▼
-          AI Data Preparation & Cleansing
-                     │
-                     ▼
-              Document Chunking
-                     │
-                     ▼
-          Embedding Generation
-                     │
-                     ▼
-              Vector Database
-      (PGVector • FAISS • Milvus)
-                     │
-                     ▼
-              Retrieval Layer
-                     │
-                     ▼
-             Prompt Construction
-                     │
-                     ▼
-          Large Language Model
-                     │
-                     ▼
-         Guardrails & Safety Checks
-                     │
-                     ▼
-             Final AI Response
-                     │
-                     ▼
-      Monitoring & Observability
+- `docs/` – reference guides, domain knowledge, and architectural patterns
+- `automation/` – test automation examples and framework integrations
+- `sql/` – sample database scripts, Oracle/PostgreSQL cases, and validation queries
+- `testcases/` – reusable test case templates and domain-specific checklists
+- `assets/`, `diagrams/`, `examples/`, `templates/` – supporting materials for designs and demos
 
-```
 ---
 
-## 📂 Repository Structure
+## Core domains
 
-```text
-Enterprise-AI-Testing-CoE/
-│
-├── .github/
-│   └── workflows/
-│
-├── docs/
-│   ├── Volume-1-Foundations/
-│   ├── Volume-2-Data-Engineering/
-│   ├── Volume-3-AI/
-│   ├── Volume-4-Quality/
-│   └── Volume-5-Automation/
-│
-├── sql/
-│   ├── oracle/
-│   └── postgresql/
-│
-├── automation/
-│   ├── pytest/
-│   ├── great_expectations/
-│   ├── pandera/
-│   ├── deep_eval/
-│   ├── ragas/
-│   └── promptfoo/
-│
-├── diagrams/
-├── examples/
-├── templates/
-├── testcases/
-├── ppt/
-├── assets/
-│
-├── README.md
-├── CHANGELOG.md
-├── LICENSE
-└── .gitignore
-```
+### 1. Foundations
 
-## 🛠 Technology Stack
+Enterprise AI fundamentals, testing principles, and quality frameworks.
 
-| Category | Technologies |
-|-----------|--------------|
-| Databases | Oracle, PostgreSQL |
-| ETL | Apache NiFi, Apache Kafka, Spark |
-| Data Quality | Great Expectations, Pandera |
-| AI Frameworks | LangChain, LlamaIndex |
-| LLM Providers | OpenAI |
-| Vector Databases | PGVector, FAISS, Milvus |
-| Evaluation | DeepEval, Ragas, Promptfoo |
-| Observability | LangSmith, TruLens, Arize Phoenix |
-| CI/CD | GitHub Actions |
+### 2. Data Engineering
 
+Database testing, ETL validation, data reconciliation, and pipeline reliability.
 
-## Getting Started
+### 3. AI and Retrieval
 
-1. Clone the repository:
-   ```bash
-git clone https://github.com/PradhanCVG/Enterprise-AI-Testing-CoE.git
-cd Enterprise-AI-Testing-CoE```
+Document processing, embeddings, vector search, RAG evaluation, and retrieval quality.
+
+### 4. Quality and Safety
+
+Data quality rules, model evaluation, hallucination detection, prompt safety, and guardrails.
+
+### 5. Automation
+
+Automated testing with `pytest`, `great_expectations`, `pandera`, `promptfoo`, `deep_eval`, and `ragas`.
+
 ---
 
-2. Review the folder structure and select the area relevant to your use case:
-   - Data validation assets in the sql directory
-   - Workflow automation in the automation directory
-   - Reusable templates in the templates directory
-   - Test scenarios in the testcases directory
+## How to use this repo
 
-3. Use the examples and documentation to implement or extend testing workflows.
+1. Review the high-level documentation in `docs/Volume-1-Foundations/`.
+2. Explore the domain-specific guides for database, ETL, AI, and quality.
+3. Open automation examples in `automation/` to understand test execution patterns.
+4. Use `testcases/` to adapt reusable checks and validations to your environment.
+5. Apply the architecture and lifecycle guidance to your enterprise AI implementation.
 
-## Testing Focus Areas
+---
 
-### Data Quality
-- Validate schema and business rules with Great Expectations and Pandera
-- Enforce data quality checks for Oracle and PostgreSQL datasets
+## Example workflow
 
-### Data Integration
-- Test ETL pipelines and transformations
-- Validate event-driven workflows using Kafka and Apache NiFi
+1. Validate enterprise data sources in `sql/`.
+2. Confirm ETL transforms and reconciliation rules.
+3. Check document chunking and embedding quality.
+4. Test retrieval precision and RAG grounding.
+5. Verify LLM outputs against business rules and guardrails.
+6. Enable automated regression tests and monitoring.
 
-### AI and RAG Evaluation
-- Assess retrieval quality, relevance, and factual consistency
-- Use DeepEval to benchmark LLM-based and RAG-based outputs
+---
 
-### Automation
-- Integrate test execution and validation in GitHub Actions workflows
-- Standardize deployment and release quality checks
+## Contributing
 
-## Recommended Workflow
+Contributions are welcome.
 
-- Define test cases and validation rules
-- Implement data checks and pipeline assertions
-- Automate execution through GitHub Actions
-- Review results and continuously improve quality standards
-## 📍 Project Roadmap
+- Add new docs or test frameworks for enterprise AI testing.
+- Share automation patterns for your data and AI stack.
+- Improve existing guidance, templates, and test cases.
 
-| Module | Status |
-|----------|--------|
-| AI Foundations | ✅ |
-| Enterprise Architecture | ✅ |
-| AI Testing Strategy | ✅ |
-| Oracle Database Testing | 🚧 |
-| PostgreSQL Testing | Planned |
-| ETL Testing | Planned |
-| Data Quality | Planned |
-| Chunking | Planned |
-| Embedding Testing | Planned |
-| Vector Database Testing | Planned |
-| RAG Evaluation | Planned |
-| Guardrails | Planned |
-| Automation Framework | Planned |
+Please follow the repository license and contribution guidelines.
 
-
-## Contribution Guidelines
-
-Contributions are welcome. To contribute:
-
-1. Fork the repository
-2. Create a feature or test-focused branch
-3. Add or improve documentation, examples, templates, or automation assets
-4. Submit a pull request with a clear summary of changes
+---
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the `LICENSE` included in this repository.
 
-## Contact
+---
 
-For questions, collaboration opportunities, or contributions, please open an issue or contact the repository maintainers.
+## Quick links
 
-
-## 🌟 Long-Term Vision
-
-The goal of this project is to become one of the most comprehensive open-source Enterprise AI Testing frameworks by providing:
-
-- Enterprise AI Testing Handbook
-- Oracle & PostgreSQL SQL Validation Library
-- ETL Testing Framework
-- Data Quality Framework
-- AI Pipeline Testing
-- RAG Evaluation Framework
-- Guardrails & Security Testing
-- AI Observability
-- CI/CD Automation
-- Reusable Enterprise Test Assets
+- `README.md` – this overview
+- `docs/` – reference and architecture content
+- `automation/` – automated test examples
+- `sql/` – database scripts and test cases
+- `testcases/` – checklists and templates
