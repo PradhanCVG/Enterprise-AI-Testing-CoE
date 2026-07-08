@@ -1,118 +1,301 @@
 # Data Quality Framework
 
-## Overview
-
-This document defines the Data Quality Framework for enterprise AI systems.
-
-The framework provides a structured approach to ensure that data is accurate, complete, consistent, and fit for AI and analytics use cases.
+> *Data quality is the foundation of trustworthy AI. Every AI response is only as reliable as the data used to generate it.*
 
 ---
 
-## Framework goals
+# Purpose
 
-- define data quality standards for enterprise AI workflows
-- identify validation categories and metrics
-- establish reusable controls and test patterns
-- integrate data quality into ETL and AI pipelines
-- enable continuous monitoring and remediation
+This document defines the Enterprise Data Quality Framework for validating structured, semi-structured, and unstructured data before it is consumed by AI applications.
 
----
+The framework establishes standardized data quality dimensions, validation techniques, automation strategies, quality metrics, and governance practices.
 
-## Key principles
+This framework supports:
 
-### 1. Data quality is foundational
-
-High-quality AI output depends on reliable input data. Data quality validation should happen before and after ETL, and before AI model consumption.
-
-### 2. Coverage across domains
-
-Include validation across schema, content, relationships, freshness, and distribution.
-
-### 3. Reusability and automation
-
-Use reusable checks, SQL templates, and automation for consistent validation across environments.
-
-### 4. Continuous monitoring
-
-Track data health over time and detect drift or degradation early.
-
-### 5. Business rule alignment
-
-Ensure data quality checks reflect business requirements and domain rules.
+- Oracle
+- PostgreSQL
+- Apache NiFi
+- Apache Kafka
+- ETL Pipelines
+- AI Pipelines
+- RAG Applications
 
 ---
 
-## Data quality domains
+# Why Data Quality Matters
 
-### Schema validation
+Every AI pipeline depends on trusted data.
 
-- object existence
-- expected columns and types
-- nullability and defaults
-- constraints and indexes
+```
 
-### Referential integrity
+Source Systems
+│
+▼
+Data Quality
+│
+▼
+ETL
+│
+▼
+Chunking
+│
+▼
+Embeddings
+│
+▼
+Vector Database
+│
+▼
+Retriever
+│
+▼
+LLM
 
-- foreign key consistency
-- parent-child record validation
-- orphan detection
-- duplicate keys
+```
 
-### Content validation
+If poor-quality data enters the pipeline:
 
-- required fields
-- domain values
-- data patterns and formats
-- invalid or out-of-range values
-
-### Distribution validation
-
-- value distributions
-- statistical drifts
-- outliers and anomalies
-- summary metrics
-
-### Freshness and timeliness
-
-- last updated timestamps
-- ingestion delays
-- stale or late data
-- alignment to business cycles
-
-### AI readiness
-
-- document completeness
-- text normalization
-- metadata quality
-- support for embeddings and retrieval
+- Wrong embeddings are generated.
+- Incorrect documents are retrieved.
+- LLM responses become inaccurate.
+- Hallucinations increase.
+- Business trust decreases.
 
 ---
 
-## Recommended tooling
+# Data Quality Dimensions
 
-- Great Expectations
-- Pandera
-- pytest
-- SQL validation libraries
-- dbt tests
-- GitHub Actions
-- monitoring dashboards
-
----
-
-## Implementation pattern
-
-1. define data quality requirements
-2. create reusable test assets
-3. execute checks in ETL and CI/CD jobs
-4. collect and surface metrics
-5. act on issues through remediation workflows
+| Dimension | Description |
+|------------|-------------|
+| Completeness | Required data exists |
+| Accuracy | Data correctly represents reality |
+| Consistency | Data is consistent across systems |
+| Validity | Data conforms to expected formats |
+| Uniqueness | No duplicate records |
+| Timeliness | Data is current |
+| Integrity | Relationships are preserved |
+| Availability | Data is accessible |
 
 ---
 
-## Next steps
+# Enterprise Data Quality Lifecycle
 
-- Add Great Expectations examples in `Great-Expectations.md`.
-- Add Pandera validation patterns in `Pandera.md`.
-- Link data quality checks to ETL and AI testing strategies.
-- Define a monitoring and alerting approach for data quality failures.
+```
+
+Data Collection
+│
+▼
+Profiling
+│
+▼
+Quality Rules
+│
+▼
+Validation
+│
+▼
+Issue Detection
+│
+▼
+Correction
+│
+▼
+Monitoring
+│
+▼
+Reporting
+
+```
+
+---
+
+# Data Quality Categories
+
+## Schema Validation
+
+Validate
+
+- Table exists
+- Columns exist
+- Data types
+- Constraints
+- Nullable columns
+
+---
+
+## Record Validation
+
+Validate
+
+- Missing records
+- Duplicate records
+- Invalid values
+- Mandatory fields
+
+---
+
+## Business Rule Validation
+
+Examples
+
+- Customer Age ≥ 18
+- Invoice Amount > 0
+- Status in ('ACTIVE','INACTIVE')
+
+---
+
+## Reference Data Validation
+
+Validate
+
+- Country Codes
+- Currency Codes
+- Product Codes
+- Lookup Tables
+
+---
+
+## Relationship Validation
+
+Validate
+
+- Parent-child relationships
+- Foreign keys
+- Orphan records
+
+---
+
+# Data Profiling
+
+Before creating validation rules, profile the dataset.
+
+Collect:
+
+- Row count
+- NULL percentage
+- Distinct values
+- Min / Max
+- Average
+- Distribution
+- Cardinality
+
+---
+
+# Great Expectations
+
+Recommended for
+
+- Dataset validation
+- Data contracts
+- Batch validation
+- CI/CD integration
+
+Typical Expectations
+
+- expect_table_row_count_to_be_between
+- expect_column_values_to_not_be_null
+- expect_column_values_to_be_unique
+- expect_column_values_to_match_regex
+
+---
+
+# Pandera
+
+Recommended for
+
+- DataFrame validation
+- Python ETL
+- ML pipelines
+
+Example validations
+
+- Schema
+- Data types
+- Value ranges
+- Nullable columns
+
+---
+
+# AI Data Quality
+
+Before generating embeddings verify:
+
+✓ Text exists
+
+✓ Metadata exists
+
+✓ Language supported
+
+✓ No duplicate documents
+
+✓ Encoding valid
+
+✓ Document size acceptable
+
+---
+
+# Data Quality Metrics
+
+| Metric | Description |
+|----------|-------------|
+| Completeness Score | % populated fields |
+| Accuracy Score | % correct records |
+| Duplicate Rate | Duplicate percentage |
+| Freshness | Data age |
+| Integrity Score | Relationship validity |
+| AI Readiness Score | AI-compatible documents |
+
+---
+
+# Automation Strategy
+
+| Layer | Tool |
+|--------|------|
+| SQL | SQL Scripts |
+| Database | pytest |
+| DataFrame | Pandera |
+| Dataset | Great Expectations |
+| CI/CD | GitHub Actions |
+
+---
+
+# Deliverables
+
+- Data Profiling Report
+- Data Quality Rules
+- Validation Report
+- Exception Report
+- AI Readiness Report
+
+---
+
+# Best Practices
+
+- Profile before validating.
+- Validate before ETL.
+- Validate after ETL.
+- Monitor continuously.
+- Automate quality checks.
+- Treat data quality failures as release blockers.
+
+---
+
+# Common Data Quality Issues
+
+| Issue | Impact on AI |
+|---------|--------------|
+| NULL Text | Missing embeddings |
+| Duplicate Documents | Duplicate retrieval |
+| Incorrect Metadata | Wrong context |
+| Invalid Encoding | Chunk failures |
+| Missing IDs | Broken references |
+| Stale Data | Outdated responses |
+
+---
+
+# Related Documents
+
+- ETL-Testing-Strategy.md
+- Chunking.md
+- Embeddings.md
+- SQL-Validation-Library.md
