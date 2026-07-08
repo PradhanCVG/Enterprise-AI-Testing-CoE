@@ -1,0 +1,17 @@
+{
+  "document_id": "DOC001",
+  "chunk_id": "CHUNK001",
+  "source": "employee_handbook.pdf",
+  "page": 5,
+  "chunk_number": 1,
+  "embedding_model": "text-embedding-3-small",
+  "embedding_dimension": 1536,
+  "embedding": [
+    0.125,
+    0.348,
+    0.761,
+    0.452,
+    0.918
+  ],
+  "text": "Employees are entitled to annual leave based on company policy."
+}

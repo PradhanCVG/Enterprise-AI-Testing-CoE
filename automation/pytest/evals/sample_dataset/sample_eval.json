@@ -1,0 +1,6 @@
+{
+  "question": "What is Oracle Interval Partitioning?",
+  "context": "Oracle Interval Partitioning automatically creates partitions based on predefined intervals.",
+  "answer": "Oracle Interval Partitioning creates partitions automatically when new data exceeds the highest existing partition.",
+  "reference": "Oracle Database Documentation"
+}

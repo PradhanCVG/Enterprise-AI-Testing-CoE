@@ -1,0 +1,16 @@
+{
+  "expected_document_id": "DOC001",
+  "expected_chunk_id": "CHUNK001",
+  "expected_embedding_dimension": 1536,
+  "minimum_similarity_score": 0.80,
+  "top_k": 5,
+  "expected_metadata": {
+    "source": "employee_handbook.pdf",
+    "page": 5,
+    "chunk_number": 1
+  },
+  "expected_search_result": {
+    "status": "SUCCESS",
+    "records_found": 5
+  }
+}

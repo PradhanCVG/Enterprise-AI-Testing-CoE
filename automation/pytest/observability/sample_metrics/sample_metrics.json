@@ -1,0 +1,8 @@
+{
+  "latency_seconds": 1.15,
+  "retrieval_latency": 0.42,
+  "embedding_latency": 0.30,
+  "token_usage": 1420,
+  "daily_cost": 18.25,
+  "model_version": "gpt-4.1"
+}

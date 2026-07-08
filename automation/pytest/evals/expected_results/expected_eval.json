@@ -1,0 +1,9 @@
+{
+  "minimum_answer_relevancy": 0.85,
+  "minimum_faithfulness": 0.90,
+  "minimum_context_precision": 0.85,
+  "minimum_context_recall": 0.85,
+  "hallucination": false,
+  "toxicity": false,
+  "maximum_bias": 0.05
+}

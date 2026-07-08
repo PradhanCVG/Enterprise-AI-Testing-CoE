@@ -1,0 +1,7 @@
+{
+  "expected_status": 200,
+  "max_response_time_seconds": 2,
+  "authentication_required": true,
+  "schema_valid": true,
+  "minimum_availability": 99.9
+}

@@ -1,0 +1,10 @@
+{
+  "endpoint": "/api/v1/chat",
+  "method": "POST",
+  "headers": {
+    "Authorization": "Bearer <token>"
+  },
+  "body": {
+    "question": "Explain Oracle Interval Partitioning."
+  }
+}

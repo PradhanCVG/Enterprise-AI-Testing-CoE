@@ -1,0 +1,5 @@
+{
+    "question":"What is Oracle Interval Partitioning?",
+    "top_k":5,
+    "similarity_threshold":0.80
+}

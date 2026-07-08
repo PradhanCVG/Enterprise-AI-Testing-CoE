@@ -1,0 +1,9 @@
+{
+    "expected_documents":5,
+    "minimum_similarity":0.80,
+    "grounded":true,
+    "hallucination":false,
+    "minimum_faithfulness":0.90,
+    "minimum_relevance":0.80,
+    "citations_required":true
+}

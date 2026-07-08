@@ -1,0 +1,8 @@
+{
+  "prompt_injection_blocked": true,
+  "jailbreak_detected": true,
+  "pii_masked": true,
+  "toxicity_detected": false,
+  "policy_compliant": true,
+  "safe_response": true
+}
